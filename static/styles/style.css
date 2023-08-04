@@ -1,3 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+
+@import 'partials/_header.css';
+@import 'partials/_footer.css';
+
+@import '_foundation.css';
+@import '_icons.css';
 @import 'tailwindcss/utilities';

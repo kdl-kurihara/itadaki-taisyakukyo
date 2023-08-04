@@ -30,9 +30,6 @@ module.exports = {
         body: ['Noto Sans JP', 'sans-serif'],
         display: ['Red Hat Display', 'sans-serif'],
       },
-      spacing: {
-        header: '75px',
-      },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {

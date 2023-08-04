@@ -1,1 +1,34 @@
-<header class=""></header>
+<header id="gnav" class="header" aria-hidden="true">
+  <h1 class="header--logo">
+    <a href="{{ site.url }}"><img src="{{ mix('/images/common/logo.png') }}" alt="{{ site.name }}" /></a>
+  </h1>
+
+  <nav class="header-nav" role="navigation">
+    <ul class="header-nav--list">
+      {% for item in menu.items %}
+        <li class="{{ item.link == '/' ? 'md:hidden' : '' }}">
+          <a href="{{ item.link }}" class="header-nav--link" aria-disabled="{{ item.disabled ? 'true' : 'false' }}">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="header-cta">
+      <a href="{{ site.url }}/contact/" class="header-cta--link">
+        <span class="icon icon-envelope"></span>
+        Contact
+      </a>
+      <a href="#" class="header-cta--link bg-primary text-white">
+        <span class="icon icon-entry border-primary"></span>
+        Entry
+      </a>
+    </div>
+  </nav>
+</header>
+<button id="gnav-toggle"
+  class="header-nav--toggle"
+  aria-controls="gnav"
+  aria-label="{{ __('Menu') }}"
+  aria-expanded="false">
+
+</button>

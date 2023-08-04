@@ -1,0 +1,31 @@
+.footer {
+  @apply relative bg-body-text py-10 text-white;
+}
+
+.footer-cta {
+  @apply grid gap-[10px] md:grid-cols-2;
+
+  @screen md {
+    @apply gap-5;
+  }
+}
+
+.footer-cta--link {
+  @apply flex h-[60px] items-center justify-between rounded-[5px] bg-white px-5 text-body-text;
+
+  @screen md {
+    @apply h-[80px];
+  }
+}
+
+.footer-copyright {
+  @apply ml-auto mt-auto text-xs;
+}
+
+.totop {
+  @apply absolute bottom-full right-[10px] grid h-10 w-10 translate-y-1/2 place-content-center rounded-full bg-neutral-400;
+
+  @screen md {
+    @apply right-5 h-[50px] w-[50px];
+  }
+}

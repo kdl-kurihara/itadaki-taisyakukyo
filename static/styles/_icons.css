@@ -1,0 +1,12 @@
+.icon {
+  @apply inline-block h-10 w-10 rounded-full border border-current bg-white bg-[length:50%] bg-center bg-no-repeat;
+  background-image: var(--icon-image);
+}
+
+.icon-envelope {
+  --icon-image: url('../images/common/icon_envelope.svg');
+}
+
+.icon-entry {
+  --icon-image: url('../images/common/icon_entry.svg');
+}
