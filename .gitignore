@@ -1,0 +1,23 @@
+# dotenv
+.env
+
+# 依存パッケージ
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Cache
+.npm
+.eslintcache
+
+# テーマ
+web/themes/*/assets/images
+web/themes/*/assets/scripts
+web/themes/*/assets/styles
+web/themes/*/assets/mix-manifest.json

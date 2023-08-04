@@ -1,0 +1,43 @@
+{
+  "name": "87oui-wordpress-docker",
+  "version": "1.0.0",
+  "description": "coding-set",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "mix watch",
+    "build": "mix build --production",
+    "imagemin": "node imagemin.mjs",
+    "clean": "rimraf web/themes/*/assets/images/ web/themes/*/assets/scripts/ web/themes/*/assets/styles/",
+    "build:production": "run-s clean imagemin build",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.mjs .",
+    "format": "prettier --write --ignore-path .gitignore '**/*.{twig,js,mjs,css}'",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.14",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-config-recommended": "^4.1.0",
+    "husky": "^8.0.3",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^10.0.1",
+    "laravel-mix": "^6.0.49",
+    "lint-staged": "^13.2.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.27",
+    "postcss-inline-svg": "^6.0.0",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "prettier-plugin-twig-melody": "^0.4.6",
+    "rimraf": "^5.0.1",
+    "tailwindcss": "^3.3.3"
+  }
+}

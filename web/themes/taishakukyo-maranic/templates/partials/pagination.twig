@@ -1,0 +1,17 @@
+{% if posts.pagination.pages is not empty %}
+  <nav class="">
+    <ol class="mt-8 flex items-center justify-center gap-2 md:mt-16">
+      {% for page in posts.pagination.pages %}
+        <li class="">
+          {% if page.link %}
+            <a href="{{ page.link }}" class="{{ page.class }} border-b-4 border-transparent px-3 py-2">
+              {{ page.title }}
+            </a>
+          {% else %}
+            <span class="{{ page.class }} border-accent border-b-4 px-3 py-2">{{ page.title }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

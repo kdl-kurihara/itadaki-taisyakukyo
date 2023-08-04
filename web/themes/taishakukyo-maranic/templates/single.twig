@@ -1,0 +1,24 @@
+{% extends 'layouts/lower.twig' %}
+
+{% block content %}
+  {{ parent() }}
+
+  <main class="">
+    <article class="">
+      <header class="">
+        <h1 class="text-xl font-medium md:text-2xl">
+          {{ post.title }}
+        </h1>
+        <date class="">
+          {{ post.post_date|date('Y.m.d') }}
+        </date>
+      </header>
+      <div class="prose mx-auto my-10 md:my-16">
+        {{ post.content }}
+      </div>
+      <footer class="">
+        <a href="{{ function('get_post_type_archive_link', 'post') }}" class="">記事の一覧へ</a>
+      </footer>
+    </article>
+  </main>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layouts/lower.twig' %}
+
+{% block content %}
+  {{ parent() }}
+
+  <main class="">
+    <div class="">
+      {% for post in posts %}
+        {% include 'partials/article.twig' %}
+      {% endfor %}
+    </div>
+    {% include 'partials/pagination.twig' with {
+      pagination: posts.pagination({
+        show_all: false,
+        mid_size: 3,
+        end_size: 2
+      })
+    } %}
+  </main>
+{% endblock %}

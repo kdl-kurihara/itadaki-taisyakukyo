@@ -1,0 +1,14 @@
+<ul class="md:h-gnav flex flex-col items-center gap-10 md:flex-row md:justify-center md:gap-[clamp(0px,4vw,50px)]">
+  {% for item in menu.items %}
+    <li class="shrink text-center {{ item.link == '/' ? 'md:hidden' : '' }}">
+      <a class="aria-[disabled=true]:text-body-light font-medium aria-[disabled=true]:pointer-events-none"
+        href="{{ item.link }}"
+        aria-disabled="{{ item.disabled ? 'true' : 'false' }}">
+        {{ item.title }}
+        <span class="font-en block text-[0.625rem] uppercase text-primary-light" aria-hidden>
+          {{ item.attr_title }}
+        </span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

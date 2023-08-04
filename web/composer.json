@@ -1,0 +1,93 @@
+{
+  "name": "87oui/wordpress",
+  "type": "project",
+  "license": "MIT",
+  "description": "",
+  "config": {
+    "vendor-dir": "public/vendor/",
+    "allow-plugins": {
+      "johnpbloch/wordpress-core-installer": true,
+      "koodimonni/composer-dropin-installer": true,
+      "composer/installers": true,
+      "ffraenz/private-composer-installer": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/87oui/jun"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/87oui/jun-lib"
+    },
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://wp-languages.github.io",
+      "only": [
+        "koodimonni-language/*",
+        "koodimonni-plugin-language/*",
+        "koodimonni-theme-language/*"
+      ]
+    }
+  ],
+  "require": {
+    "87oui/jun": "^1.2",
+    "composer/installers": "^2.2",
+    "koodimonni-language/core-ja": "6.2.2",
+    "johnpbloch/wordpress": "^6.2.2",
+    "vlucas/phpdotenv": "^5.2",
+    "wpackagist-plugin/duplicate-post": "^4.4",
+    "wpackagist-plugin/google-sitemap-generator": "^4.1",
+    "wpackagist-plugin/instagram-feed": "^6.1",
+    "wpackagist-plugin/snow-monkey-forms": "^5.2",
+    "wpackagist-plugin/wp-mail-smtp": "^3.8",
+    "wpackagist-plugin/wp-multibyte-patch": "^2.9"
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+      "plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "dropin-paths": {
+      "public/wp/wp-content/languages/": [
+        "vendor:koodimonni-language"
+      ],
+      "public/wp/wp-content/languages/plugins/": [
+        "vendor:koodimonni-plugin-language"
+      ],
+      "public/wp/wp-content/languages/themes/": [
+        "vendor:koodimonni-theme-language"
+      ]
+    }
+  },
+  "scripts": {
+    "link": [
+      "rm -rf public/wp/wp-content/mu-plugins",
+      "ln -s ../../../mu-plugins public/wp/wp-content/",
+      "rm -rf public/wp/wp-content/themes",
+      "ln -s ../../../themes public/wp/wp-content/",
+      "rm -rf public/wp/wp-content/plugins",
+      "ln -s ../../../plugins public/wp/wp-content/"
+    ],
+    "setup": [
+      "@link"
+    ],
+    "post-install-cmd": [
+      "@link",
+      "composer install -d themes/jun --no-dev"
+    ],
+    "post-update-cmd": [
+      "composer install -d themes/jun --no-dev"
+    ]
+  }
+}
