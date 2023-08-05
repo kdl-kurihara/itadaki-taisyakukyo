@@ -1,5 +1,30 @@
 {% extends 'layouts/base.twig' %}
 
 {% block content %}
-  <main class=""></main>
+  <main class="">
+    <picture>
+      <source media="(min-width: 560px)" srcset="{{ mix('/images/home/mainvisual.jpg') }}" />
+      <source media="(min-width: 1366px)" srcset="{{ mix('/images/home/mainvisual@2x.jpg') }}" />
+      <img src="{{ mix('/images/home/mainvisual_sm.jpg') }}"
+        alt="帝釈峡マラニック 2023年11月26日日曜日 帝釈峡スコラ高原にて"
+        class="mainvisual" />
+    </picture>
+
+    <section class="section grid gap-x-8 md:grid-cols-[1fr_50%]">
+      <h2 class="heading-primary" data-en="Information">
+        お知らせ
+      </h2>
+
+      <div class="row-span-2">
+        {% for post in posts %}
+          {% include 'partials/article.twig' %}
+        {% endfor %}
+      </div>
+
+      <a href="" class="inline-flex items-center gap-4 font-bold md:mt-20">
+        記事の一覧へ
+        <span class="icon icon-arrow border-primary" aria-hidden></span>
+      </a>
+    </section>
+  </main>
 {% endblock %}

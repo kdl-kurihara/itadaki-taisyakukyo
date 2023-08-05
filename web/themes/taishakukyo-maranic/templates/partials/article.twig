@@ -1,8 +1,6 @@
-<article class="">
-  <h3 class="">
-    <a href="{{ post.link }}" class="">{{ post.title }}</a>
+<article class="article">
+  <span class="article--date">{{ post.post_date|date('Y.m.d') }}</span>
+  <h3 class="article--title">
+    <a href="{{ post.link }}">{{ post.title }}</a>
   </h3>
-  <date class="">
-    {{ post.post_date|date('Y.m.d') }}
-  </date>
 </article>

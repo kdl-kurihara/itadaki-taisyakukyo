@@ -1,0 +1,7 @@
+.mainvisual {
+  @apply mx-auto max-h-screen;
+
+  @media (max-aspect-ratio: 18/10) {
+    @apply h-screen w-screen object-cover;
+  }
+}

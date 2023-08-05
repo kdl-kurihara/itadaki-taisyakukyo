@@ -3,6 +3,10 @@
   background-image: var(--icon-image);
 }
 
+.icon-arrow {
+  --icon-image: url('../images/common/icon_arrow.svg');
+}
+
 .icon-envelope {
   --icon-image: url('../images/common/icon_envelope.svg');
 }

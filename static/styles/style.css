@@ -4,6 +4,11 @@
 @import 'partials/_header.css';
 @import 'partials/_footer.css';
 
+@import 'pages/_home.css';
+
+@import '_article.css';
 @import '_foundation.css';
 @import '_icons.css';
+@import '_typography.css';
+
 @import 'tailwindcss/utilities';

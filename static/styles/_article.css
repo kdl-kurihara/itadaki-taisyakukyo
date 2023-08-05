@@ -1,0 +1,17 @@
+.article {
+  @apply relative border-b border-white bg-[length:1.25rem] bg-right bg-no-repeat py-5;
+  background-image: url(../images/common/icon_arrow.svg);
+}
+
+.article--date {
+  @apply text-xs text-neutral-400;
+}
+
+.article--title {
+  @apply mt-3;
+
+  > a::before {
+    content: '';
+    @apply absolute inset-0;
+  }
+}

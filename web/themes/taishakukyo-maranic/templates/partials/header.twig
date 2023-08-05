@@ -7,7 +7,9 @@
     <ul class="header-nav--list">
       {% for item in menu.items %}
         <li class="{{ item.link == '/' ? 'md:hidden' : '' }}">
-          <a href="{{ item.link }}" class="header-nav--link" aria-disabled="{{ item.disabled ? 'true' : 'false' }}">
+          <a href="{{ item.disabled == false ? item.link : '' }}"
+            class="header-nav--link"
+            aria-disabled="{{ item.disabled ? 'true' : 'false' }}">
             {{ item.title }}
           </a>
         </li>
