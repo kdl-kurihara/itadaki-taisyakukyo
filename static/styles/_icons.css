@@ -1,9 +1,20 @@
-.icon {
+.icon,
+.lead::after {
   @apply inline-block h-10 w-10 rounded-full border border-current bg-white bg-[length:50%] bg-center bg-no-repeat;
   background-image: var(--icon-image);
 }
 
-.icon-arrow {
+.lead {
+  @apply mt-12 flex w-fit items-center gap-4 font-bold md:mt-20;
+
+  &::after {
+    content: '';
+    @apply border-primary;
+  }
+}
+
+.icon-arrow,
+.lead::after {
   --icon-image: url('../images/common/icon_arrow.svg');
 }
 

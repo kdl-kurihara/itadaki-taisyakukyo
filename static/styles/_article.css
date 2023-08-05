@@ -37,7 +37,3 @@
 .article-content {
   @apply mt-10 rounded-[10px] bg-white px-8 py-10 md:mt-[60px] md:py-20 md:py-[60px];
 }
-
-.toarchive {
-  @apply mt-12 flex w-fit items-center gap-4 font-bold md:mt-20;
-}
