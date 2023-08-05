@@ -40,12 +40,12 @@ add_action(
 					// phpcs:disable Generic.Files.LineLength
 					'<link rel="preconnect" href="https://fonts.googleapis.com">',
 					'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-					'<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">',
-					'<link rel="apple-touch-icon" sizes="180x180" href="' . get_stylesheet_directory_uri() . '/assets/favicons/apple-touch-icon.png" />',
-					'<link rel="icon" type="image/png" sizes="32x32" href="' . get_stylesheet_directory_uri() . '/assets/favicons/favicon-32x32.png" />',
-					'<link rel="icon" type="image/png" sizes="16x16" href="' . get_stylesheet_directory_uri() . '/assets/favicons/favicon-16x16.png" />',
-					'<link rel="manifest" href="' . get_stylesheet_directory_uri() . '/assets/favicons/site.webmanifest" />',
-					'<link rel="mask-icon" href="' . get_stylesheet_directory_uri() . '/assets/favicons/safari-pinned-tab.svg" color="#5bbad5" />',
+					'<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Red+Hat+Display:wght@900&display=swap" rel="stylesheet">', // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+					'<link rel="apple-touch-icon" sizes="180x180" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/apple-touch-icon.png" />',
+					'<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/favicon-32x32.png" />',
+					'<link rel="icon" type="image/png" sizes="16x16" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/favicon-16x16.png" />',
+					'<link rel="manifest" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/site.webmanifest" />',
+					'<link rel="mask-icon" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/safari-pinned-tab.svg" color="#5bbad5" />',
 					'<meta name="msapplication-TileColor" content="#ffffff" />',
 					'<meta name="theme-color" content="#ffffff" />',
 					// phpcs:enable Generic.Files.LineLength
@@ -144,6 +144,13 @@ add_filter(
 	}
 );
 
+/**
+ * Laravel Mixでビルドしたファイルをパラメータ付きで呼び出し
+ *
+ * @param   String $path  assetsより下のパス
+ *
+ * @return  String         絶対パスのURL
+ */
 function mix( $path ) {
 	if ( ! WP_DEBUG ) {
 		$manifest_path = get_stylesheet_directory() . '/assets/mix-manifest.json';
