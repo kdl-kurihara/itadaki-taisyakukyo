@@ -3,8 +3,11 @@
 
 @import 'partials/_header.css';
 @import 'partials/_footer.css';
+@import 'partials/_pagination.css';
+@import 'partials/_breadcrumbs.css';
 
 @import 'pages/_home.css';
+@import 'pages/_page.css';
 
 @import '_article.css';
 @import '_foundation.css';

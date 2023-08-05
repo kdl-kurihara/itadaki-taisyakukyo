@@ -1,0 +1,15 @@
+.pagination {
+  /*  */
+}
+
+.pagination--list {
+  @apply flex flex-wrap items-center justify-center gap-[10px];
+}
+
+.pagination--item {
+  @apply grid h-10 w-10 place-content-center rounded-full border border-white bg-white font-bold;
+
+  &[aria-current] {
+    @apply border-primary text-primary;
+  }
+}

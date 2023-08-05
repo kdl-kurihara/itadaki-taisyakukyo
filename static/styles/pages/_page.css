@@ -1,0 +1,21 @@
+.page-title {
+  @apply grid place-content-center place-items-center gap-2 bg-cover bg-center bg-no-repeat text-lg font-bold text-primary;
+  padding-top: var(--header-height);
+  aspect-ratio: 3 / 2;
+  background-image: url(../images/common/bg_pagetitle_sm.jpg);
+
+  &::before {
+    content: attr(data-en);
+    @apply block font-display text-[2.5rem] capitalize leading-none text-body-text;
+  }
+
+  @screen md {
+    @apply h-[519px] gap-3 bg-[length:auto_100%] text-2xl;
+    aspect-ratio: unset;
+    background-image: url(../images/common/bg_pagetitle.jpg);
+
+    &::before {
+      @apply text-[5rem];
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .footer {
-  @apply relative bg-body-text py-10 text-white;
+  @apply relative mt-20 bg-body-text py-10 text-white;
 }
 
 .footer-cta {

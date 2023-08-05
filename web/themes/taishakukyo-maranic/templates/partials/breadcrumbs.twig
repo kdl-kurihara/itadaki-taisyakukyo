@@ -1,18 +1,17 @@
 {% if breadcrumbs %}
-  <ol class="" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
     {% for breadcrumb in breadcrumbs %}
-      <li class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-        {% if loop.first != true %}
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" class="">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        {% endif %}
+      <li class="last:overflow-hidden" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         {% if breadcrumb.link %}
-          <a class="" itemscope itemtype="http://schema.org/Thing" itemprop="item" href="{{ breadcrumb.link }}">
+          <a class="breadcrumbs--link"
+            itemscope
+            itemtype="http://schema.org/Thing"
+            itemprop="item"
+            href="{{ breadcrumb.link }}">
             <span itemprop="name">{{ breadcrumb.title }}</span>
           </a>
         {% else %}
-          <span class="" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+          <span class="breadcrumbs--current" itemscope itemtype="http://schema.org/Thing" itemprop="item">
             <span itemprop="name">{{ breadcrumb.title }}</span>
           </span>
         {% endif %}

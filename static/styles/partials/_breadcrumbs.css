@@ -1,0 +1,20 @@
+.breadcrumbs {
+  @apply container mt-40 flex hidden justify-center md:flex;
+
+  > li + li {
+    @apply relative ml-2 pl-3;
+
+    &::before {
+      content: '';
+      @apply absolute inset-y-0 left-0 m-auto h-1 w-1 rounded-full bg-primary;
+    }
+  }
+}
+
+.breadcrumbs--link {
+  @apply whitespace-nowrap underline;
+}
+
+.breadcrumbs--current {
+  @apply block truncate;
+}

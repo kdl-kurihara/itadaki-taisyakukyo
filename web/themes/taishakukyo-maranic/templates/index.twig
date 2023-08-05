@@ -21,7 +21,7 @@
         {% endfor %}
       </div>
 
-      <a href="" class="inline-flex items-center gap-4 font-bold md:mt-20">
+      <a href="{{ function('get_post_type_archive_link', 'post') }}" class="toarchive">
         記事の一覧へ
         <span class="icon icon-arrow border-primary" aria-hidden></span>
       </a>

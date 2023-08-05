@@ -4,20 +4,21 @@
   {{ parent() }}
 
   <main class="">
-    <article class="">
-      <header class="">
-        <h1 class="text-xl font-medium md:text-2xl">
+    <article class="section article">
+      <header class="article-header">
+        <span class="article-header--date">{{ post.post_date|date('Y.m.d') }}</span>
+        <h1 class="article-header--title">
           {{ post.title }}
         </h1>
-        <date class="">
-          {{ post.post_date|date('Y.m.d') }}
-        </date>
       </header>
-      <div class="prose mx-auto my-10 md:my-16">
+      <div class="article-content prose">
         {{ post.content }}
       </div>
-      <footer class="">
-        <a href="{{ function('get_post_type_archive_link', 'post') }}" class="">記事の一覧へ</a>
+      <footer class="article-footer">
+        <a href="{{ function('get_post_type_archive_link', 'post') }}" class="toarchive mx-auto">
+          記事の一覧へ
+          <span class="icon icon-arrow border-primary" aria-hidden></span>
+        </a>
       </footer>
     </article>
   </main>

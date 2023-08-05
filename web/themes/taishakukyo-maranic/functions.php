@@ -170,3 +170,24 @@ add_filter(
 		return $twig;
 	}
 );
+
+add_filter(
+	'inc2734_wp_breadcrumbs',
+	function( $items ) {
+		if ( empty( $items ) ) {
+			return $items;
+		}
+
+		// singleページでカテゴリアーカイブへのリンクを削除
+		if ( is_single() ) {
+			$items = array_filter(
+				$items,
+				function( $item ) {
+					return strpos( $item['link'], '/category/' ) === false;
+				}
+			);
+		}
+
+		return $items;
+	}
+);
