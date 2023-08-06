@@ -1,0 +1,23 @@
+{% extends 'layouts/lower.twig' %}
+
+{% block content %}
+  {{ parent() }}
+
+  <main class="">
+    <section class="section">
+      <p class="border-accent border-b-2 pb-5 text-2xl font-bold md:text-3xl">
+        帝釈峡の魅力を発信し、<br class="md:hidden" />全国に帝釈峡のファンを作る
+      </p>
+      <p class="mt-8 leading-loose md:mt-16">
+        2023年に国の名勝指定100年、国定公園指定60年の記念すべき節目を迎える国定公園「帝釈峡」。<br />
+        「帝釈峡マラニック」を通じて、全国の多くのランナーに庄原市・神石高原町の自然・歴史・人・食に触れて頂き、地域資源を観光資源へ転換し、関係人口の増大・地域活性化・知名度向上を目的とした大会です。<br />
+        ひとりでも多くのランナーに地域の魅力に触れて頂きたいです。
+      </p>
+      <img src="{{ mix('/images/concept/ombashi.jpg') }}"
+        alt="帝釈雄橋"
+        class="mx-auto mt-12 max-w-[91%] md:mt-24"
+        width="800"
+        height="814" />
+    </section>
+  </main>
+{% endblock %}
