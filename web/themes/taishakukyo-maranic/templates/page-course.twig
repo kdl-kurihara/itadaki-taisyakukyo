@@ -1,0 +1,90 @@
+{% extends 'layouts/lower.twig' %}
+
+{% block content %}
+  {{ parent() }}
+
+  <main class="">
+    <section class="section">
+      <h2 class="heading-primary" data-en="Long Course">
+        ロングコース
+      </h2>
+      <div class="mt-8 grid gap-12 md:mt-16 md:mt-20 md:grid-cols-[64%_1fr]">
+        <div class="">
+          <img src="{{ mix('/images/course/course_long.png') }}"
+            srcset="{{ mix('/images/course/course_long.png') }} 559w, {{ mix('/images/course/course_long@2x.png') }}"
+            alt=""
+            width="640"
+            height="752" />
+          <a href="#" class="link-pdf mr-8 mt-5 md:mt-10" target="_blank">コースマップダウンロード</a>
+          <a href="#" class="link-pdf icon-file" target="_blank">GPXダウンロード</a>
+        </div>
+        <div class="">
+          <h3 class="text-lg font-bold md:text-2xl">
+            経路
+          </h3>
+          <ol class="timeline mt-5 md:mt-8" style="--timeline-color: #3593d1;">
+            <li>スタート<small>スコラ高原</small></li>
+            <li>A<small>雄橋（5.90km）</small></li>
+            <li>B<small>帝釈宇山（6.41km）</small></li>
+            <li>C<small>東城戸宇（3.55km）</small></li>
+            <li>D<small>東城市街地（6.09km）</small></li>
+            <li>E<small>東城支所（1.17km）</small></li>
+            <li>F<small>新坂自治振興センター（6.31km）</small></li>
+            <li>G<small>帝釈川ダム堰堤（5.04km）</small></li>
+            <li>H<small>トレイルセンター（6.42km）</small></li>
+            <li>I<small>花面公園（3.66km）</small></li>
+            <li>J<small>神石高光（5.42km）</small></li>
+            <li>K<small>龍雲寺（8.24km）</small></li>
+            <li>ゴール<small>スコラ高原（6.71km）</small></li>
+          </ol>
+          <p class="mt-5 border-b border-t border-white py-4 text-sm">
+            計64.92km<br />所要時間約10時間（時速6.5km/hで計算）
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="heading-primary" data-en="Short Course">
+        ショートコース
+      </h2>
+      <div class="mt-8 grid gap-12 md:mt-16 md:mt-20 md:grid-cols-[64%_1fr]">
+        <div class="">
+          <img src="{{ mix('/images/course/course_short.png') }}"
+            srcset="{{ mix('/images/course/course_short.png') }} 559w, {{ mix('/images/course/course_short@2x.png') }}"
+            alt=""
+            width="640"
+            height="540" />
+          <a href="#" class="link-pdf mr-8 mt-5 md:mt-10" target="_blank">コースマップダウンロード</a>
+          <a href="#" class="link-pdf icon-file" target="_blank">GPXダウンロード</a>
+        </div>
+        <div class="">
+          <h3 class="text-lg font-bold md:text-2xl">
+            雄橋コース
+          </h3>
+          <ol class="timeline mt-5 md:mt-8" style="--timeline-color: #874b9a;">
+            <li>スタート<small>スコラ高原</small></li>
+            <li>A<small>弥生食堂前（5.0km）</small></li>
+            <li>B<small>雄橋（1.26km）</small></li>
+            <li>ゴール<small>スコラ高原（6.28km）</small></li>
+          </ol>
+          <p class="mt-5 border-b border-t border-white py-4 text-sm">
+            計12.54km
+          </p>
+          <h3 class="mt-10 text-lg font-bold md:mt-12 md:text-2xl">
+            神龍湖コース
+          </h3>
+          <ol class="timeline mt-5 md:mt-8" style="--timeline-color: #ec739d;">
+            <li>スタート<small>スコラ高原</small></li>
+            <li>C<small>トレイルセンター（3.0km）</small></li>
+            <li><small>神龍湖周遊（2.43km）</small></li>
+            <li>ゴール<small>スコラ高原（3.0km）</small></li>
+          </ol>
+          <p class="mt-5 border-b border-t border-white py-4 text-sm">
+            計8.43km
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

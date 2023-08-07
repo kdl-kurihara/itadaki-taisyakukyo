@@ -36,3 +36,34 @@
     }
   }
 }
+
+/* タイムライン */
+.timeline {
+  > li {
+    @apply relative pb-4 pl-6 font-bold;
+
+    $top: calc((1em * $leading-normal - 1ch) / 2);
+
+    &::before {
+      content: '';
+      @apply absolute left-[0.5ch] h-full border-l;
+      top: $top;
+      border-color: var(--timeline-color);
+    }
+
+    &::after {
+      content: '';
+      @apply absolute left-0 block h-[1ch] w-[1ch] rounded-full;
+      top: $top;
+      background-color: var(--timeline-color);
+    }
+
+    &:last-child::before {
+      @apply hidden;
+    }
+  }
+
+  small {
+    @apply block text-base font-normal;
+  }
+}

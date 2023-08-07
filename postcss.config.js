@@ -11,11 +11,15 @@ for (const i of Object.keys(twConfig.theme.colors)) {
       twConfig.theme.colors[i][j];
   }
 }
+const lineHeight = {};
+for (const i of Object.keys(twConfig.theme.lineHeight)) {
+  lineHeight[`leading-${i}`] = twConfig.theme.lineHeight[i];
+}
 
 const config = {
   plugins: [
     require('postcss-simple-vars')({
-      variables: { ...colors },
+      variables: { ...colors, ...lineHeight },
     }),
     require('tailwindcss/nesting'),
     require('tailwindcss'),

@@ -15,7 +15,7 @@
 
 .link-pdf {
   @apply inline-block border-b-2 border-current bg-[length:auto_1ch] bg-left bg-no-repeat py-1 pl-6 font-bold text-primary;
-  background-image: url('../images/common/icon_pdf.svg');
+  background-image: var(--icon-image);
 }
 
 .icon-arrow,
@@ -29,4 +29,13 @@
 
 .icon-entry {
   --icon-image: url('../images/common/icon_entry.svg');
+}
+
+.icon-pdf,
+.link-pdf {
+  --icon-image: url('../images/common/icon_pdf.svg');
+}
+
+.icon-file {
+  --icon-image: url('../images/common/icon_file.svg');
 }
