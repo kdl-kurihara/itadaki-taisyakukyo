@@ -4,15 +4,11 @@
   {{ parent() }}
 
   <main class="">
-    <div class="">
-      {% include 'partials/heading-primary.twig' with {
-        title: 'ページが見つかりませんでした',
-        en: 'Page not found'
-      } %}
-      <p class="">
+    <section class="section">
+      <p class="text-center">
         あなたがアクセスしようとしたページは削除されたかURLが変更されているため、見つけることができませんでした。
       </p>
-      <a href="{{ function('home_url') }}" class="">トップページへ戻る</a>
-    </div>
+      <a href="{{ function('home_url') }}" class="lead mx-auto">トップページへ戻る</a>
+    </section>
   </main>
 {% endblock %}
