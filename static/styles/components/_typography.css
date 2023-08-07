@@ -1,0 +1,22 @@
+.heading-primary {
+  @apply text-lg font-bold text-primary;
+
+  &::after {
+    content: attr(data-en);
+    @apply mt-3 block font-display text-4xl font-black text-body-text;
+  }
+}
+
+.heading-secondary {
+  @apply mt-8 border-b-2 pb-5 text-2xl font-bold md:mt-16 md:text-3xl;
+  border-image: linear-gradient(
+    90deg,
+    theme('colors.primary.DEFAULT') theme('spacing.20'),
+    theme('colors.white') theme('spacing.20')
+  );
+  border-image-slice: 1;
+}
+
+.heading-small {
+  @apply my-[10px] block w-fit border border-current bg-white px-[10px] py-[5px] text-sm text-body-text;
+}

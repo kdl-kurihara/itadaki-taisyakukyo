@@ -1,8 +1,0 @@
-.heading-primary {
-  @apply text-lg font-bold text-primary;
-
-  &::after {
-    content: attr(data-en);
-    @apply mt-3 block font-display text-4xl font-black text-body-text;
-  }
-}

@@ -10,10 +10,12 @@
 @import 'pages/_page.css';
 @import 'pages/_contact.css';
 
-@import '_article.css';
+@import 'components/_misc.css';
+@import 'components/_article.css';
+@import 'components/_icons.css';
+@import 'components/_typography.css';
+@import 'components/_list.css';
+
 @import '_foundation.css';
-@import '_icons.css';
-@import '_typography.css';
-@import '_misc.css';
 
 @import 'tailwindcss/utilities';

@@ -1,9 +1,0 @@
-.border-accent {
-  @apply border-white;
-  border-image: linear-gradient(
-    90deg,
-    theme('colors.primary.DEFAULT') 80px,
-    theme('colors.white') 80px
-  );
-  border-image-slice: 1;
-}

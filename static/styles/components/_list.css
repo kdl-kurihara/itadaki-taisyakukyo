@@ -1,0 +1,38 @@
+/* 定義リスト */
+.list-desc {
+  @apply grid md:grid-cols-[max(9ch,16%)_1fr];
+
+  .list-desc {
+    @apply grid-cols-[8ch_1fr] text-sm;
+
+    .list-desc--title,
+    .list-desc--content {
+      @apply mt-0 border-b border-t-0 py-2 font-normal;
+    }
+  }
+}
+
+.list-desc--title,
+.list-desc--content {
+  @apply -mt-[2px] border-white;
+}
+
+.list-desc--title {
+  @apply border-t-2 pt-5 font-bold md:border-b-2 md:py-5;
+}
+
+.list-desc--content {
+  @apply break-inside-avoid border-b-2 pb-5 pt-[10px] md:border-t-2 md:py-5;
+}
+
+/* 米印リスト */
+.list-note {
+  li {
+    @apply relative pl-4 text-sm;
+
+    &::before {
+      content: '※';
+      @apply absolute left-0;
+    }
+  }
+}

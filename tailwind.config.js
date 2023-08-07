@@ -30,6 +30,9 @@ module.exports = {
         body: ['Noto Sans JP', 'sans-serif'],
         display: ['Red Hat Display', 'sans-serif'],
       },
+      listStyleType: {
+        alpha: 'lower-alpha',
+      },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {

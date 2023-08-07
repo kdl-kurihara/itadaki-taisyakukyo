@@ -13,6 +13,11 @@
   }
 }
 
+.link-pdf {
+  @apply inline-block border-b-2 border-current bg-[length:auto_1ch] bg-left bg-no-repeat py-1 pl-6 font-bold text-primary;
+  background-image: url('../images/common/icon_pdf.svg');
+}
+
 .icon-arrow,
 .lead::after {
   --icon-image: url('../images/common/icon_arrow.svg');
