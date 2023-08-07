@@ -15,6 +15,10 @@
     theme('colors.white') theme('spacing.20')
   );
   border-image-slice: 1;
+
+  &:first-child {
+    @apply mt-0;
+  }
 }
 
 .heading-small {
