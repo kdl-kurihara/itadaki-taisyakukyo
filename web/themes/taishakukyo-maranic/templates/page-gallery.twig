@@ -20,7 +20,8 @@
           <a href="{{ image.photo }}">
             <img src="{{ image.thumb ? image.thumb : image.photo }}"
               alt=""
-              class="aspect-[16/11] w-full object-cover" />
+              class="aspect-[16/11] w-full object-cover"
+              loading="lazy" />
           </a>
         </figure>
       {% endfor %}
