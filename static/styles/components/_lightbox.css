@@ -1,0 +1,19 @@
+@import 'luminous-lightbox/dist/luminous-basic.css';
+
+.lum-lightbox {
+  @apply z-50;
+}
+
+@media (max-width: theme('screens.sm.max')) {
+  .lum-lightbox-inner img {
+    @apply max-w-[80vw];
+  }
+}
+
+.lum-img {
+  @apply mx-auto;
+
+  @screen md {
+    @apply cursor-pointer;
+  }
+}

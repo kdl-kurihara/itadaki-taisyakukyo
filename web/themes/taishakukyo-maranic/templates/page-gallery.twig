@@ -14,9 +14,9 @@
   </nav>
 
   <section class="section">
-    <div class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-5">
+    <div class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-5" data-lightbox-gallery>
       {% for image in images %}
-        <figure class="wp-block-image w-full">
+        <figure class="">
           <a href="{{ image.photo }}">
             <img src="{{ image.thumb ? image.thumb : image.photo }}"
               alt=""

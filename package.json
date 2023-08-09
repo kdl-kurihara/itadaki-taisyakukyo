@@ -39,5 +39,8 @@
     "prettier-plugin-twig-melody": "^0.4.6",
     "rimraf": "^5.0.1",
     "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "luminous-lightbox": "^2.4.0"
   }
 }

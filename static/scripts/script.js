@@ -1,5 +1,7 @@
 'use strict';
 
+import './modules/_lightbox.js';
+
 document.addEventListener(
   'DOMContentLoaded',
   () => {

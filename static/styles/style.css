@@ -6,6 +6,8 @@
 @import 'partials/_pagination.css';
 @import 'partials/_breadcrumbs.css';
 
+@import '_foundation.css';
+
 @import 'pages/_home.css';
 @import 'pages/_page.css';
 @import 'pages/_result.css';
@@ -16,7 +18,6 @@
 @import 'components/_icons.css';
 @import 'components/_typography.css';
 @import 'components/_list.css';
-
-@import '_foundation.css';
+@import 'components/_lightbox.css';
 
 @import 'tailwindcss/utilities';
