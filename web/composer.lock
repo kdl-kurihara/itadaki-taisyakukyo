@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "333447dd1d1d17f219169f5282f2dc8f",
+    "content-hash": "f4db9debcb853c112cc4b455ae939ef1",
     "packages": [
         {
             "name": "87oui/jun",
-            "version": "v1.3.1",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/87oui/jun.git",
-                "reference": "7ee5bd3ffad9b706bf2496675bbe0fe99d33e129"
+                "reference": "c472c9b0da1e56a7ac03c84c79ed3d62b3298f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/87oui/jun/zipball/7ee5bd3ffad9b706bf2496675bbe0fe99d33e129",
-                "reference": "7ee5bd3ffad9b706bf2496675bbe0fe99d33e129",
+                "url": "https://api.github.com/repos/87oui/jun/zipball/c472c9b0da1e56a7ac03c84c79ed3d62b3298f32",
+                "reference": "c472c9b0da1e56a7ac03c84c79ed3d62b3298f32",
                 "shasum": ""
             },
             "require": {
@@ -43,10 +43,10 @@
                 ]
             },
             "support": {
-                "source": "https://github.com/87oui/jun/tree/v1.3.1",
+                "source": "https://github.com/87oui/jun/tree/v1.3.4",
                 "issues": "https://github.com/87oui/jun/issues"
             },
-            "time": "2023-08-08T02:43:07+00:00"
+            "time": "2023-08-09T00:03:16+00:00"
         },
         {
             "name": "altorouter/altorouter",
@@ -1449,15 +1449,15 @@
         },
         {
             "name": "wpackagist-plugin/google-sitemap-generator",
-            "version": "4.1.13",
+            "version": "4.1.12",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-sitemap-generator/",
-                "reference": "tags/4.1.13"
+                "reference": "tags/4.1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-sitemap-generator.4.1.13.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-sitemap-generator.4.1.12.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1467,15 +1467,15 @@
         },
         {
             "name": "wpackagist-plugin/instagram-feed",
-            "version": "6.1.6",
+            "version": "6.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/instagram-feed/",
-                "reference": "tags/6.1.6"
+                "reference": "tags/6.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.1.6.zip"
+                "url": "https://downloads.wordpress.org/plugin/instagram-feed.6.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

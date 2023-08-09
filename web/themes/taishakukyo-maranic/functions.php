@@ -13,7 +13,7 @@ add_action(
 	function () {
 		wp_enqueue_style(
 			'theme',
-			mix( '/styles/style.css' ),
+			get_static_file_path( '/styles/style.css' ),
 			array(),
 			null
 		);
@@ -23,7 +23,7 @@ add_action(
 		}
 		wp_enqueue_script(
 			'theme',
-			mix( '/scripts/script.js' ),
+			get_static_file_path( '/scripts/script.js' ),
 			array(),
 			null,
 			true
@@ -61,7 +61,7 @@ add_action(
 	function () {
 		wp_enqueue_style(
 			'theme-editor',
-			mix( '/styles/editor-style.css' ),
+			get_static_file_path( '/styles/editor-style.css' ),
 			array(),
 			null
 		);
@@ -80,24 +80,6 @@ define( 'POST_TYPE_DEFAULT_LABEL', 'お知らせ' );
 add_filter(
 	'timber/context',
 	function ( $context ) {
-		// メニュー
-		$menu = $context['menu'];
-		foreach ( $menu->items as $i => $item ) {
-			if ( 'page' === $item->object ) {
-				preg_match( '/page_id=(\d+)/', $item->url, $matches );
-				if ( $matches ) {
-					$page_id = $matches[1];
-					$page = get_post( $page_id );
-				} else {
-					$page = get_page_by_path( str_replace( get_home_url(), '', $item->url ) );
-				}
-				$menu->items[ $i ]->disabled = 'publish' !== $page->post_status;
-			} else {
-				$menu->items[ $i ]->disabled = false;
-			}
-		}
-		$context['menu'] = $menu;
-
 		// 下層ページタイトル
 		if ( is_page() ) {
 			$context['title_en'] = str_replace(
@@ -141,33 +123,6 @@ add_filter(
 	'inc2734_wp_ogp_image',
 	function() {
 		return get_stylesheet_directory_uri() . '/assets/images/common/ogp.jpg';
-	}
-);
-
-/**
- * Laravel Mixでビルドしたファイルをパラメータ付きで呼び出し
- *
- * @param   String $path  assetsより下のパス
- *
- * @return  String         絶対パスのURL
- */
-function mix( $path ) {
-	if ( ! WP_DEBUG ) {
-		$manifest_path = get_stylesheet_directory() . '/assets/mix-manifest.json';
-		$manifest = file_exists( $manifest_path )
-			? json_decode( file_get_contents( $manifest_path ), true )
-			: array();
-		$path = ! empty( $manifest ) && isset( $manifest[ $path ] ) ? $manifest[ $path ] : $path;
-	}
-
-	return get_stylesheet_directory_uri() . '/assets' . $path;
-}
-add_filter(
-	'timber/twig',
-	function( $twig ) {
-		$twig->addFunction( new Timber\Twig_Function( 'mix', 'mix' ) );
-
-		return $twig;
 	}
 );
 

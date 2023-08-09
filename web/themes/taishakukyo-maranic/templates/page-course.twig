@@ -10,8 +10,12 @@
       </h2>
       <div class="mt-8 grid gap-12 md:mt-16 md:mt-20 md:grid-cols-[64%_1fr]">
         <div class="">
-          <img src="{{ mix('/images/course/course_long.png') }}"
-            srcset="{{ mix('/images/course/course_long.png') }} 559w, {{ mix('/images/course/course_long@2x.png') }}"
+          <img src="{{ get_image_path('/images/course/course_long.png') }}"
+            srcset="{{ get_image_path('/images/course/course_long.png') }} 559w, {{
+            get_image_path(
+              '/images/course/course_long@2x.png'
+            )
+            }}"
             alt=""
             width="640"
             height="752" />
@@ -50,8 +54,12 @@
       </h2>
       <div class="mt-8 grid gap-12 md:mt-16 md:mt-20 md:grid-cols-[64%_1fr]">
         <div class="">
-          <img src="{{ mix('/images/course/course_short.png') }}"
-            srcset="{{ mix('/images/course/course_short.png') }} 559w, {{ mix('/images/course/course_short@2x.png') }}"
+          <img src="{{ get_image_path('/images/course/course_short.png') }}"
+            srcset="{{ get_image_path('/images/course/course_short.png') }} 559w, {{
+            get_image_path(
+              '/images/course/course_short@2x.png'
+            )
+            }}"
             alt=""
             width="640"
             height="540" />
