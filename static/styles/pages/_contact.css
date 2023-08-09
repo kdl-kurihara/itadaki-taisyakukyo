@@ -41,18 +41,23 @@
   @apply contents;
 }
 
-.smf-action .smf-button-control__control {
-  @apply relative flex h-[60px] w-full items-center justify-center rounded-[10px] border-0 bg-primary bg-none font-bold text-white md:h-20 md:text-lg;
+.smf-action .smf-button-control__control,
+.button {
+  @apply relative flex h-[60px] w-full items-center justify-center rounded-[10px] border-0 bg-white bg-none px-5 font-bold text-body-text md:h-20 md:text-lg;
 
   &::after {
     content: '';
-    @apply absolute right-5 inline-block h-10 w-10 rounded-full bg-white bg-[length:50%] bg-center bg-no-repeat;
-    background-image: var(--icon-image);
-    --icon-image: url('../images/common/icon_arrow.svg');
+    @apply absolute right-5 inline-block h-10 w-10 rounded-full border border-current bg-white bg-[length:50%] bg-center bg-no-repeat;
+    background-image: var(--icon-image, url('../images/common/icon_arrow.svg'));
+  }
+
+  &[data-action='confirm'],
+  &[data-action='complete'] {
+    @apply bg-primary text-white;
   }
 
   &[data-action='back'] {
-    @apply bg-neutral-500;
+    @apply bg-neutral-500 text-white;
 
     &::after {
       --icon-image: svg-load(
