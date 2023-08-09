@@ -1,8 +1,13 @@
-.border-accent {
-  border-image: linear-gradient(
+/* あしらい線 */
+:root {
+  --border-accent: linear-gradient(
     90deg,
     theme('colors.primary.DEFAULT') theme('spacing.20'),
     theme('colors.white') theme('spacing.20')
   );
+}
+
+.border-accent {
+  border-image: var(--border-accent);
   border-image-slice: 1;
 }

@@ -9,11 +9,7 @@
 
 .heading-secondary {
   @apply mt-8 border-b-2 pb-5 text-2xl font-bold md:mt-16 md:text-3xl;
-  border-image: linear-gradient(
-    90deg,
-    theme('colors.primary.DEFAULT') theme('spacing.20'),
-    theme('colors.white') theme('spacing.20')
-  );
+  border-image: var(--border-accent);
   border-image-slice: 1;
 
   &:first-child {
