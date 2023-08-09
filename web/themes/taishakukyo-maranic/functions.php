@@ -76,17 +76,99 @@ remove_filter( 'the_excerpt', 'wpautop' );
 define( 'POST_TYPE_DEFAULT_SLUG', 'information' );
 define( 'POST_TYPE_DEFAULT_LABEL', 'お知らせ' );
 
+// ページタイトル
+add_filter(
+	'jun_page_title',
+	function( $title ) {
+		if ( is_page() ) {
+			$parent_post_id = get_post( get_the_ID() )->post_parent;
+			if ( ! empty( $parent_post_id ) ) {
+				return get_the_title( $parent_post_id );
+			}
+		}
+
+		return $title;
+	}
+);
+
 // テンプレートへ渡す変数
 add_filter(
 	'timber/context',
 	function ( $context ) {
-		// 下層ページタイトル
 		if ( is_page() ) {
-			$context['title_en'] = str_replace(
-				array( '_', '-' ),
-				array( ' & ', ' ' ),
-				get_post( get_the_ID() )->post_name
-			);
+			$parent_post_id = get_post( get_the_ID() )->post_parent;
+			if ( ! empty( $parent_post_id ) ) {
+				$parent_post_name = get_post( $parent_post_id )->post_name;
+				$context['title_en'] = $parent_post_name;
+
+				if ( array_search( $parent_post_name, array( 'gallery', 'result' ) ) !== false ) {
+					$siblings = get_pages(
+						array(
+							'parent' => $parent_post_id,
+							'sort_column' => 'post_name',
+						)
+					);
+					$context['years'] = array_map(
+						function( $item ) {
+							return preg_replace( '/y-(\d{4})/', '$1', $item->post_name );
+						},
+						$siblings
+					);
+
+					if ( 'gallery' === $parent_post_name ) {
+						$post_name = get_post( get_the_ID() )->post_name;
+						$photos = array_filter(
+							array_map(
+								function( $path ) {
+									if ( ! exif_imagetype( $path ) ) {
+										return false;
+									}
+
+									return str_replace(
+										get_stylesheet_directory(),
+										get_stylesheet_directory_uri(),
+										$path
+									);
+								},
+								glob(
+									get_stylesheet_directory()
+									. "/assets/images/gallery/$post_name/photo_*.*"
+								)
+							)
+						);
+						$context['images'] = array_map(
+							function( $photo ) {
+								return array(
+									'photo' => $photo,
+									'thumb' =>
+										file_exists(
+											str_replace(
+												array( get_stylesheet_directory_uri(), 'photo_' ),
+												array( get_stylesheet_directory(), 'thumb_' ),
+												$photo
+											)
+										)
+											? str_replace( 'photo_', 'thumb_', $photo )
+											: null,
+								);
+							},
+							$photos
+						);
+					} else if ( 'result' === $parent_post_name ) {
+						$result_path = get_stylesheet_directory() . '/assets/result.json';
+						$result = file_exists( $result_path )
+							? json_decode( file_get_contents( $result_path ), true )
+							: array();
+						$context['result'] = $result[ get_post( get_the_ID() )->post_name ];
+					}
+				}
+			} else {
+				$context['title_en'] = str_replace(
+					array( '_', '-' ),
+					array( ' & ', ' ' ),
+					get_post( get_the_ID() )->post_name
+				);
+			}
 		} elseif ( is_archive() || is_single() ) {
 			$context['title_en'] = POST_TYPE_DEFAULT_SLUG;
 		} elseif ( is_post_type_archive() || is_singular() ) {
@@ -123,6 +205,22 @@ add_filter(
 	'inc2734_wp_ogp_image',
 	function() {
 		return get_stylesheet_directory_uri() . '/assets/images/common/ogp.jpg';
+	}
+);
+
+add_action(
+	'template_redirect',
+	function() {
+		if ( is_page( array( 'gallery', 'result' ) ) ) {
+			$year = gmdate( 'Y' );
+			$slug = get_post( get_the_ID() )->post_name;
+			if ( ! get_page_by_path( "$slug/y-$year" ) ) {
+				$year = strval( intval( $year ) - 1 );
+			}
+
+			wp_redirect( home_url( "$slug/y-$year" ) );
+			exit;
+		}
 	}
 );
 

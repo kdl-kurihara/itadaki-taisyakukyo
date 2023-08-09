@@ -1,0 +1,29 @@
+{% extends 'layouts/lower.twig' %}
+
+{% block content %}
+  {{ parent() }}
+
+  <nav class="years">
+    {% for year in years %}
+      <a href="/gallery/y{{ year }}/"
+        class="years--item"
+        aria-current="{{ post.post_name == 'y-' ~ year ? 'true' : 'false' }}">
+        {{ year }}年大会
+      </a>
+    {% endfor %}
+  </nav>
+
+  <section class="section">
+    <div class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-5">
+      {% for image in images %}
+        <figure class="wp-block-image w-full">
+          <a href="{{ image.photo }}">
+            <img src="{{ image.thumb ? image.thumb : image.photo }}"
+              alt=""
+              class="aspect-[16/11] w-full object-cover" />
+          </a>
+        </figure>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
