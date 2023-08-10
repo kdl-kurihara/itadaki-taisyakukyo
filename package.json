@@ -7,9 +7,8 @@
   "scripts": {
     "dev": "mix watch",
     "build": "mix build --production",
-    "imagemin": "node imagemin.mjs",
     "clean": "rimraf web/themes/*/assets/images/ web/themes/*/assets/scripts/ web/themes/*/assets/styles/",
-    "build:production": "run-s clean imagemin build",
+    "build:production": "run-s clean build",
     "lint": "eslint --fix --ignore-path .gitignore --ext .js,.mjs .",
     "format": "prettier --write --ignore-path .gitignore '**/*.{twig,js,mjs,css}'",
     "prepare": "husky install"
