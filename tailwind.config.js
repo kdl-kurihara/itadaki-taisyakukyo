@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin');
 require('dotenv').config();
 
 module.exports = {
@@ -43,5 +44,18 @@ module.exports = {
       }),
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    plugin(({ addUtilities, theme }) => {
+      addUtilities({
+        '.border-accent': {
+          'border-image': `linear-gradient(
+            90deg,
+            ${theme('colors.primary.DEFAULT')} ${theme('spacing.20')},
+            ${theme('colors.white')} ${theme('spacing.20')})`,
+          'border-image-slice': '1',
+        },
+      });
+    }),
+  ],
 };
