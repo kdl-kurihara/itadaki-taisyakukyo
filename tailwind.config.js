@@ -52,7 +52,9 @@ module.exports = {
           'border-image': `linear-gradient(
             90deg,
             ${theme('colors.primary.DEFAULT')} ${theme('spacing.20')},
-            ${theme('colors.white')} ${theme('spacing.20')})`,
+            var(--border-accent-base, ${theme('colors.white')}) ${theme(
+            'spacing.20'
+          )})`,
           'border-image-slice': '1',
         },
       });

@@ -4,9 +4,10 @@
   @apply z-50;
 }
 
-@media (max-width: theme('screens.sm.max')) {
+@media (max-width: 460px) {
   .lum-lightbox-inner img {
-    @apply max-w-[80vw];
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 

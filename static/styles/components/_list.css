@@ -37,6 +37,19 @@
   }
 }
 
+.list-enum {
+  @apply text-justify;
+
+  > li {
+    @apply inline;
+
+    &::after {
+      content: '／';
+      @apply last:hidden;
+    }
+  }
+}
+
 /* タイムライン */
 .timeline {
   > li {
