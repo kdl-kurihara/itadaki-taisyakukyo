@@ -13,7 +13,7 @@ add_action(
 	function () {
 		wp_enqueue_style(
 			'theme',
-			get_static_file_path( '/styles/style.css' ),
+			get_static_file_path( 'styles/style.css' ),
 			array(),
 			null
 		);
@@ -23,7 +23,7 @@ add_action(
 		}
 		wp_enqueue_script(
 			'theme',
-			get_static_file_path( '/scripts/script.js' ),
+			get_static_file_path( 'scripts/script.js' ),
 			array(),
 			null,
 			true
@@ -61,7 +61,7 @@ add_action(
 	function () {
 		wp_enqueue_style(
 			'theme-editor',
-			get_static_file_path( '/styles/editor-style.css' ),
+			get_static_file_path( 'styles/editor-style.css' ),
 			array(),
 			null
 		);
