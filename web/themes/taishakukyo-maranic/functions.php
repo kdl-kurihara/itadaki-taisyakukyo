@@ -110,46 +110,68 @@ add_filter(
 					);
 					$context['years'] = array_map(
 						function( $item ) {
-							return preg_replace( '/y-(\d{4})/', '$1', $item->post_name );
+							preg_match( '/(\d{4})/', $item->post_name, $matches );
+
+							return array(
+								'year' => $matches[1],
+								'href' => get_the_permalink( $item ),
+							);
 						},
 						$siblings
 					);
 
 					if ( 'gallery' === $parent_post_name ) {
 						$post_name = get_post( get_the_ID() )->post_name;
-						$photos = array_filter(
-							array_map(
-								function( $path ) {
-									if ( ! exif_imagetype( $path ) ) {
-										return false;
-									}
 
-									return str_replace(
-										get_stylesheet_directory(),
-										get_stylesheet_directory_uri(),
-										$path
-									);
-								},
-								glob(
-									get_stylesheet_directory()
-									. "/assets/images/gallery/$post_name/photo_*.*"
-								)
-							)
+						// 画像リストを取得
+						$photos = array_filter(
+							glob(
+								get_stylesheet_directory()
+								. "/assets/images/gallery/$post_name/photo_*.*"
+							),
+							function( $path ) {
+								if ( ! exif_imagetype( $path ) ) {
+									return false;
+								}
+
+								return true;
+							}
 						);
 						$context['images'] = array_map(
 							function( $photo ) {
+								// 画像サイズを取得
+								$size = getimagesize( $photo );
+								// サムネイル画像を取得
+								$thumb_path = str_replace(
+									'photo_',
+									'thumb_',
+									$photo
+								);
+								$thumb = null;
+								if ( file_exists( $thumb_path ) ) {
+									$thumb_size = getimagesize( $thumb_path );
+									$thumb = array(
+										'url' => str_replace(
+											get_stylesheet_directory(),
+											get_stylesheet_directory_uri(),
+											$thumb_path
+										),
+										'height' => $thumb_size[1],
+										'width' => $thumb_size[0],
+									);
+								}
+
 								return array(
-									'photo' => $photo,
-									'thumb' =>
-										file_exists(
-											str_replace(
-												array( get_stylesheet_directory_uri(), 'photo_' ),
-												array( get_stylesheet_directory(), 'thumb_' ),
-												$photo
-											)
-										)
-											? str_replace( 'photo_', 'thumb_', $photo )
-											: null,
+									'photo' => array(
+										'url' => str_replace(
+											get_stylesheet_directory(),
+											get_stylesheet_directory_uri(),
+											$photo
+										),
+										'height' => $size[1],
+										'width' => $size[0],
+									),
+									'thumb' => $thumb,
 								);
 							},
 							$photos

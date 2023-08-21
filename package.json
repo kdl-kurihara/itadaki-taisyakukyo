@@ -40,6 +40,6 @@
     "tailwindcss": "^3.3.3"
   },
   "dependencies": {
-    "luminous-lightbox": "^2.4.0"
+    "photoswipe": "^5.3.8"
   }
 }

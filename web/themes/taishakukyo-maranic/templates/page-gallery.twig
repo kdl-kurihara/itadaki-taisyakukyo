@@ -4,22 +4,24 @@
   {{ parent() }}
 
   <nav class="years">
-    {% for year in years %}
-      <a href="/gallery/y{{ year }}/"
-        class="years--item"
-        aria-current="{{ post.post_name == 'y-' ~ year ? 'true' : 'false' }}">
-        {{ year }}年大会
+    {% for item in years %}
+      <a href="{{ item.href }}" class="years--item" aria-current="{{ post.link == item.href ? 'true' : 'false' }}">
+        {{ item.year }}年大会
       </a>
     {% endfor %}
   </nav>
 
   <section class="section">
-    <div class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-5" data-lightbox-gallery>
+    <div id="gallery" class="grid grid-cols-3 gap-2 md:grid-cols-4 md:gap-5">
       {% for image in images %}
         <figure class="">
-          <a href="{{ image.photo }}">
-            <img src="{{ image.thumb ? image.thumb : image.photo }}"
+          <a href="{{ image.photo.url }}"
+            data-pswp-width="{{ image.photo.width }}"
+            data-pswp-height="{{ image.photo.height }}">
+            <img src="{{ image.thumb ? image.thumb : image.photo.url }}"
               alt=""
+              width="{{ image.thumb ? image.thumb.width : image.photo.width }}"
+              height="{{ image.thumb ? image.thumb.height : image.photo.height }}"
               class="aspect-[16/11] w-full object-cover"
               loading="lazy" />
           </a>
