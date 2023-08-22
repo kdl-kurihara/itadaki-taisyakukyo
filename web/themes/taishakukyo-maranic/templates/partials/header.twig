@@ -6,7 +6,7 @@
   <nav class="header-nav" role="navigation">
     <ul class="header-nav--list">
       {% for item in menu.items %}
-        <li class="{{ item.link == '/' ? 'md:hidden' : '' }}">
+        <li class="">
           <a href="{{ item.disabled == false ? item.link : '' }}"
             class="header-nav--link"
             aria-disabled="{{ item.disabled ? 'true' : 'false' }}">

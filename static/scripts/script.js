@@ -9,7 +9,19 @@ document.addEventListener(
     const gnavToggle = document.getElementById('gnav-toggle');
     const gnav = document.getElementById('gnav');
     if (gnavToggle && gnav) {
-      // トグルボタン
+      if (window.matchMedia('calc(1000px + 1.25rem * 2)').matches) {
+        gnav.setAttribute('aria-hidden', false);
+      } else {
+        // リンクをクリックしたらナビゲーションを閉じる
+        const gnavItems = gnav.querySelectorAll('a[href^="#"]');
+        gnavItems.forEach((item) => {
+          item.addEventListener('click', () => {
+            gnavToggle.setAttribute('aria-expanded', false);
+            gnav.setAttribute('aria-hidden', true);
+          });
+        });
+      }
+
       gnavToggle.addEventListener('click', () => {
         gnavToggle.setAttribute(
           'aria-expanded',
@@ -19,15 +31,6 @@ document.addEventListener(
           'aria-hidden',
           !(gnav.getAttribute('aria-hidden') === 'true')
         );
-      });
-
-      // ページ内リンクをクリックしたらナビゲーションを閉じる
-      const gnavItems = gnav.querySelectorAll('a');
-      gnavItems.forEach((item) => {
-        item.addEventListener('click', () => {
-          gnavToggle.setAttribute('aria-expanded', false);
-          gnav.setAttribute('aria-hidden', true);
-        });
       });
     }
   },
