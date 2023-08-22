@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "87oui/jun",
-            "version": "v1.3.6",
+            "version": "v1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/87oui/jun.git",
-                "reference": "82db3e0746b27879d198f0b1e1459a1fed8bdb1d"
+                "reference": "ff2efd62f88a2b8958d17f739cbde464007dbdc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/87oui/jun/zipball/82db3e0746b27879d198f0b1e1459a1fed8bdb1d",
-                "reference": "82db3e0746b27879d198f0b1e1459a1fed8bdb1d",
+                "url": "https://api.github.com/repos/87oui/jun/zipball/ff2efd62f88a2b8958d17f739cbde464007dbdc8",
+                "reference": "ff2efd62f88a2b8958d17f739cbde464007dbdc8",
                 "shasum": ""
             },
             "require": {
@@ -43,10 +43,10 @@
                 ]
             },
             "support": {
-                "source": "https://github.com/87oui/jun/tree/v1.3.6",
+                "source": "https://github.com/87oui/jun/tree/v1.3.7",
                 "issues": "https://github.com/87oui/jun/issues"
             },
-            "time": "2023-08-19T02:32:18+00:00"
+            "time": "2023-08-22T02:26:12+00:00"
         },
         {
             "name": "altorouter/altorouter",
