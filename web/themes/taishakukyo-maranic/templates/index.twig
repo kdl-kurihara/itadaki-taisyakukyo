@@ -72,6 +72,7 @@
               {% for item in items %}
                 <a href="{{ item.href }}"
                   target="_blank"
+                  rel="noreferer noopener"
                   class="grid min-h-[100px] place-content-center overflow-hidden rounded-md bg-white">
                   <img src="{{ get_image_path(item.image) }}" alt="{{ item.title }}" />
                 </a>
