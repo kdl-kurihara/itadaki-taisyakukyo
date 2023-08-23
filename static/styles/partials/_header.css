@@ -40,7 +40,7 @@
   }
 
   .header-nav--link {
-    @apply block border-t border-neutral-400 py-5 text-white aria-disabled:text-opacity-30;
+    @apply block border-t border-neutral-400 py-5 text-white;
   }
 }
 
