@@ -9,7 +9,7 @@ document.addEventListener(
     const gnavToggle = document.getElementById('gnav-toggle');
     const gnav = document.getElementById('gnav');
     if (gnavToggle && gnav) {
-      if (window.matchMedia('calc(1000px + 1.25rem * 2)').matches) {
+      if (window.matchMedia('(min-width: calc(1000px + 1.25rem * 2)').matches) {
         gnav.setAttribute('aria-hidden', false);
       } else {
         // リンクをクリックしたらナビゲーションを閉じる
