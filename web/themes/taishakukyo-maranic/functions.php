@@ -45,8 +45,8 @@ add_action(
 					'<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/favicon-32x32.png" />',
 					'<link rel="icon" type="image/png" sizes="16x16" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/favicon-16x16.png" />',
 					'<link rel="manifest" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/site.webmanifest" />',
-					'<link rel="mask-icon" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/safari-pinned-tab.svg" color="#5bbad5" />',
-					'<meta name="msapplication-TileColor" content="#ffffff" />',
+					'<link rel="mask-icon" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicons/safari-pinned-tab.svg" color="#ffc40d" />',
+					'<meta name="msapplication-TileColor" content="#ffc40d" />',
 					'<meta name="theme-color" content="#ffffff" />',
 					// phpcs:enable Generic.Files.LineLength
 				)
@@ -226,7 +226,7 @@ add_action(
 add_filter(
 	'inc2734_wp_ogp_image',
 	function() {
-		return get_stylesheet_directory_uri() . '/assets/images/common/ogp.jpg';
+		return get_image_path( 'common/ogp.jpg' );
 	}
 );
 
