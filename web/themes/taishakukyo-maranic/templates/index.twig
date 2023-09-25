@@ -24,32 +24,11 @@
       <a href="{{ function('get_post_type_archive_link', 'post') }}" class="lead">記事の一覧へ</a>
     </section>
 
-    {# <section class="mx-auto max-w-[1200px] bg-white px-10 py-10 md:py-20">
-      <div class="mx-auto grid max-w-[920px] gap-5 md:grid-cols-2 md:gap-[6.5%]">
-        <div class="">
-          <div id="fb-root"></div>
-          <script async
-            defer
-            crossorigin="anonymous"
-            src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v17.0"
-            nonce="ImXVNn3B"></script>
-          <div class="fb-page"
-            data-href="https://www.facebook.com/facebook"
-            data-tabs="timeline"
-            data-width="430"
-            data-height="470"
-            data-small-header="true"
-            data-adapt-container-width="true"
-            data-hide-cover="false"
-            data-show-facepile="false">
-            <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
-              <a href="https://www.facebook.com/facebook">Facebook</a>
-            </blockquote>
-          </div>
-        </div>
-        <div class=""></div>
+    <section class="bg-white py-10 md:py-16">
+      <div class="container lg:max-w-[1240px]">
+        {{ function('do_shortcode', '[instagram-feed feed=1]') }}
       </div>
-    </section> #}
+    </section>
 
     <section class="section">
       {% set banners = {
