@@ -5,7 +5,7 @@
 }
 
 .lead {
-  @apply mt-12 flex w-fit items-center gap-4 font-bold md:mt-20;
+  @apply flex w-fit items-center gap-4 font-bold;
 
   &::after {
     content: '';

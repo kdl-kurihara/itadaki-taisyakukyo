@@ -20,5 +20,108 @@
         車：中国自動車道 東城IC下車 県道25号線約14分
       </p>
     </section>
+
+    <section class="section">
+      <h2 class="heading-primary" data-en="Stay">
+        宿泊情報
+      </h2>
+      <div class="mt-8 grid gap-x-14 gap-y-12 md:mt-16 lg:grid-cols-2">
+        {% set hotels = [
+          {
+            name: '休暇村帝釈峡',
+            image: 'img_qkamura.jpg',
+            info: {
+              '電話': '08477-2-3110',
+              '住所': '〒729-5132<br />広島県庄原市東城町三坂962-1',
+              'アクセス': 'JR芸備線東城駅から車で約15分<br />中国自動車道東城ICから車で約15分'
+            },
+            url: 'https://www.qkamura.or.jp/taishaku/'
+          },
+          {
+            name: '帝釈峡観光ホテル 養浩荘',
+            image: 'img_youkousou.jpg',
+            info: {
+              '電話': '08477-2-4100',
+              '住所': '〒729-5132<br/>広島県庄原市東城町三坂922-1',
+              'アクセス': 'JR芸備線東城駅から車で約10分<br/>中国自動車道東城ICから車で約7分'
+            },
+            url: 'http://youkousou.jp/'
+          },
+          {
+            name: 'ひば・道後山高原荘',
+            image: 'img_dogoyama.jpg',
+            info: {
+              '電話': '0824-84-2170',
+              '住所': '〒729-5611<br/>広島県庄原市西城町三坂152-10',
+              'アクセス': 'JR芸備線落合駅から車で約15分<br/>中国自動車道東城ICから車で約30分'
+            },
+            url: 'http://dogoyama.jp/'
+          },
+          {
+            name: '比婆荘',
+            image: 'img_hibasou.jpg',
+            info: {
+              '電話': '0824-72-1717',
+              '住所': '〒727-0013<br/>広島県庄原市西本町一丁目19番12号',
+              'アクセス': 'JR芸備線備後庄原駅から徒歩で約15分<br/>中国自動車道庄原ICから車で約3分'
+            },
+            url: 'https://www.shobara-info.com/1011'
+          }
+        ] %}
+        {% for hotel in hotels %}
+          <div class="">
+            <h3 class="text-lg font-bold md:text-2xl">
+              {{ hotel.name }}
+            </h3>
+            <img src="{{ get_image_path('access/' ~ hotel.image) }}"
+              alt=""
+              width="470"
+              height="260"
+              class="mt-5 w-full"
+              loading="lazy" />
+            <div class="bg-white px-5 py-6">
+              <dl class="grid grid-cols-[min(20vw,30%)_1fr] gap-4">
+                {% for key, value in hotel.info %}
+                  <dt class="font-bold">
+                    {{ key }}
+                  </dt>
+                  <dd class="">{{ value }}</dd>
+                {% endfor %}
+              </dl>
+              <a href="{{ hotel.url }}"
+                class="ml-auto mt-5 flex w-fit items-center gap-1 border-b-2 border-current font-bold text-primary"
+                target="_blank"
+                rel="noreferer noopener">
+                <img src="{{ get_image_path('common/icon_home.svg') }}" alt="" />
+                公式サイト
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <h3 class="heading-secondary">
+        その他の宿泊施設情報
+      </h3>
+      <ul class="flex flex-wrap gap-6 md:gap-12">
+        {% set links = [
+          {
+            title: '庄原市',
+            href: 'https://www.shobara-info.com/spot/?p=33&sctg0=%E3%80%90%E6%B8%A9%E6%B3%89%E3%83%BB%E5%AE%BF%E6%B3%8A%E3%80%91'
+          },
+          {
+            title: '神石高原町',
+            href: 'https://jkougen.jp/kankou/spot/stay/'
+          }
+        ] %}
+        {% for link in links %}
+          <li>
+            <a href="{{ link.href }}" class="lead mt-5 md:mt-10" target="_blank" rel="noreferer noopener">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   </main>
 {% endblock %}
