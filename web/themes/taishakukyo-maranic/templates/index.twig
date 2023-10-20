@@ -35,15 +35,20 @@
         sponsor: [],
         partner: [
           {
-            title: '一般社団法人ITADAKI',
-            image: 'home/banner_itadaki.svg',
-            href: 'https://itadaki.jp'
+            title: '大塚製薬',
+            image: 'home/banner_otsuka.png',
+            href: 'https://www.otsuka.co.jp/'
+          },
+          {
+            title: 'NSウエスト',
+            image: 'home/banner_nswest.png',
+            href: 'https://www.nswest.co.jp/'
           }
         ]
       } %}
       {% for key, items in banners %}
         {% if items %}
-          <div class="flex gap-6 border-t-2 py-10 border-accent md:py-16">
+          <div class="flex flex-col gap-6 border-t-2 py-10 border-accent md:flex-row md:py-16">
             <h2 class="font-display text-xl capitalize text-primary md:mr-auto md:text-2xl">
               {{ key }}
             </h2>
@@ -52,7 +57,7 @@
                 <a href="{{ item.href }}"
                   target="_blank"
                   rel="noreferer noopener"
-                  class="grid min-h-[100px] place-content-center overflow-hidden rounded-md bg-white">
+                  class="grid aspect-[2/1] place-content-center overflow-hidden rounded-md bg-white p-3 md:aspect-[19/10]">
                   <img src="{{ get_image_path(item.image) }}" alt="{{ item.title }}" />
                 </a>
               {% endfor %}
