@@ -17,14 +17,28 @@
             width="640"
             height="752"
             loading="lazy" />
+          <img src="{{ get_image_path('course/altitude_long.png') }}"
+            srcset="{{ get_image_path('course/altitude_long.png') }} 559w, {{
+            get_image_path(
+              'course/altitude_long@2x.png'
+            )
+            }}"
+            alt=""
+            width="640"
+            height="195"
+            loading="lazy"
+            class="mt-5" />
           <a href="{{ get_static_file_path('documents/course/long.pdf') }}"
             class="link-pdf mr-8 mt-5 md:mt-10"
             target="_blank"
             rel="noreferer noopener">
             コースマップダウンロード
           </a>
-          <a href="" class="link-pdf icon-file" target="_blank" rel="noreferer noopener" aria-disabled="true">
-            GPXダウンロード<small>（準備中）</small>
+          <a href="{{ get_static_file_path('documents/course/long.gpx') }}"
+            class="link-pdf icon-file"
+            download
+            rel="noreferer noopener">
+            GPXダウンロード
           </a>
         </div>
         <div class="">
@@ -75,9 +89,6 @@
             target="_blank"
             rel="noreferer noopener">
             コースマップダウンロード
-          </a>
-          <a href="" class="link-pdf icon-file" target="_blank" rel="noreferer noopener" aria-disabled="true">
-            GPXダウンロード<small>（準備中）</small>
           </a>
         </div>
         <div class="">
