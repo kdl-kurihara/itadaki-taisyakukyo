@@ -9,9 +9,15 @@ document.addEventListener(
     const gnavToggle = document.getElementById('gnav-toggle');
     const gnav = document.getElementById('gnav');
     if (gnavToggle && gnav) {
-      if (window.matchMedia('(min-width: calc(1000px + 1.25rem * 2)').matches) {
-        gnav.setAttribute('aria-hidden', false);
-      } else {
+      const mediaQueryList = window.matchMedia(
+        '(min-width: calc(1000px + 1.25rem * 2)'
+      );
+      const setHeaderVisibility = (mq) => {
+        gnav.setAttribute('aria-hidden', mq.matches ? 'false' : 'true');
+      };
+      mediaQueryList.addEventListener('change', setHeaderVisibility);
+      setHeaderVisibility(mediaQueryList);
+      if (!mediaQueryList.matches) {
         // リンクをクリックしたらナビゲーションを閉じる
         const gnavItems = gnav.querySelectorAll('a[href^="#"]');
         gnavItems.forEach((item) => {
