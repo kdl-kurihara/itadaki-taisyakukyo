@@ -1,30 +1,43 @@
 {
-  "y-2023": {
-    "long": {
-      "finished-rate": "00.0",
-      "male": [
-        { "name": "頂 太郎", "time": "00:00:00" },
-        { "name": "頂 次郎", "time": "00:00:00" },
-        { "name": "頂 三郎", "time": "00:00:00" }
-      ],
-      "female": [
-        { "name": "頂 松子", "time": "00:00:00" },
-        { "name": "頂 竹子", "time": "00:00:00" },
-        { "name": "頂 梅子", "time": "00:00:00" }
+  "y-2023": [
+    {
+      "title": "ロングコース",
+      "title_en": "Long Course",
+      "results": [
+        {
+          "title": "",
+          "list": [
+            { "name": "⾕⽔ 強", "time": "6:07:25" },
+            { "name": "⻄藤 裕⼀郎", "time": "6:22:15" },
+            { "name": "清⽔ 聡", "time": "6:23:51" }
+          ],
+          "pdf": "long.pdf"
+        }
       ]
     },
-    "short": {
-      "finished-rate": "00.0",
-      "male": [
-        { "name": "頂 太郎", "time": "00:00:00" },
-        { "name": "頂 次郎", "time": "00:00:00" },
-        { "name": "頂 三郎", "time": "00:00:00" }
-      ],
-      "female": [
-        { "name": "頂 松子", "time": "00:00:00" },
-        { "name": "頂 竹子", "time": "00:00:00" },
-        { "name": "頂 梅子", "time": "00:00:00" }
+    {
+      "title": "ショートコース",
+      "title_en": "Short Course",
+      "results": [
+        {
+          "title": "雄橋コース",
+          "list": [
+            { "name": "前田 敏行", "time": "49:38" },
+            { "name": "平本 和宏", "time": "50:13" },
+            { "name": "砂本 義⽂", "time": "1:00:20" }
+          ],
+          "pdf": "short_ombashi.pdf"
+        },
+        {
+          "title": "神龍湖コース",
+          "list": [
+            { "name": "平⽥ 圭", "time": "32:27" },
+            { "name": "樫本 晃樹", "time": "41:59" },
+            { "name": "⼊江 直樹", "time": "48:20" }
+          ],
+          "pdf": "short_shinryuko.pdf"
+        }
       ]
     }
-  }
+  ]
 }

@@ -4,122 +4,43 @@
   {{ parent() }}
 
   <nav class="years">
-    {% for year in years %}
-      <a href="/result/y{{ year }}/"
-        class="years--item"
-        aria-current="{{ post.post_name == 'y-' ~ year ? 'true' : 'false' }}">
-        {{ year }}年大会
+    {% for item in years %}
+      <a href="{{ item.href }}" class="years--item" aria-current="{{ post.link == item.href ? 'true' : 'false' }}">
+        {{ item.year }}年大会
       </a>
     {% endfor %}
   </nav>
 
-  {% if result.long %}
+  {% for section in result %}
     <section class="section">
-      <h2 class="heading-primary" data-en="Long Course">
-        ロングコース
+      <h2 class="heading-primary" data-en="{{ section.title_en }}">
+        {{ section.title }}
       </h2>
-      <span class="finished-rate">完走率： {{ result.long['finished-rate'] }}</span>
       <div class="results">
-        {% if result.long.male %}
+        {% for result in section.results %}
           <div class="result">
-            <h3 class="heading-secondary">
-              男子の部
-            </h3>
+            {% if result.title %}
+              <h3 class="heading-secondary">
+                {{ result.title }}
+              </h3>
+            {% endif %}
             <ol class="result-list">
-              {% for item in result.long.male %}
+              {% for item in result.list %}
                 <li>
-                  <span class="result-list--rank">{{ loop.index }}位</span>
                   <span class="result-list--name">{{ item.name }}</span>
                   <span class="result-list--time">{{ item.time }}</span>
                 </li>
               {% endfor %}
             </ol>
-            <a href="{{ get_static_file_path('documents/result/' ~ post.post_name ~ '/long_male.pdf') }}"
+            <a href="{{ get_static_file_path('documents/result/' ~ post.post_name ~ '/' ~ result.pdf) }}"
               class="link-pdf"
               target="_blank"
               rel="noreferer noopener">
               全ての結果を見る
             </a>
           </div>
-        {% endif %}
-        {% if result.long.female %}
-          <div class="result">
-            <h3 class="heading-secondary">
-              女子の部
-            </h3>
-            <ol class="result-list">
-              {% for item in result.long.female %}
-                <li>
-                  <span class="result-list--rank">{{ loop.index }}位</span>
-                  <span class="result-list--name">{{ item.name }}</span>
-                  <span class="result-list--time">{{ item.time }}</span>
-                </li>
-              {% endfor %}
-            </ol>
-            <a href="{{ get_static_file_path('documents/result/' ~ post.post_name ~ '/long_female.pdf') }}"
-              class="link-pdf"
-              target="_blank"
-              rel="noreferer noopener">
-              全ての結果を見る
-            </a>
-          </div>
-        {% endif %}
+        {% endfor %}
       </div>
     </section>
-  {% endif %}
-
-  {% if result.short %}
-    <section class="section">
-      <h2 class="heading-primary" data-en="Short Course">
-        ショートコース
-      </h2>
-      <span class="finished-rate">完走率： {{ result.short['finished-rate'] }}</span>
-      <div class="results">
-        {% if result.short.male %}
-          <div class="result">
-            <h3 class="heading-secondary">
-              男子の部
-            </h3>
-            <ol class="result-list">
-              {% for item in result.short.male %}
-                <li>
-                  <span class="result-list--rank">{{ loop.index }}位</span>
-                  <span class="result-list--name">{{ item.name }}</span>
-                  <span class="result-list--time">{{ item.time }}</span>
-                </li>
-              {% endfor %}
-            </ol>
-            <a href="{{ get_static_file_path('documents/result/' ~ post.post_name ~ '/short_male.pdf') }}"
-              class="link-pdf"
-              target="_blank"
-              rel="noreferer noopener">
-              全ての結果を見る
-            </a>
-          </div>
-        {% endif %}
-        {% if result.short.female %}
-          <div class="result">
-            <h3 class="heading-secondary">
-              女子の部
-            </h3>
-            <ol class="result-list">
-              {% for item in result.short.female %}
-                <li>
-                  <span class="result-list--rank">{{ loop.index }}位</span>
-                  <span class="result-list--name">{{ item.name }}</span>
-                  <span class="result-list--time">{{ item.time }}</span>
-                </li>
-              {% endfor %}
-            </ol>
-            <a href="{{ get_static_file_path('documents/result/' ~ post.post_name ~ '/short_female.pdf') }}"
-              class="link-pdf"
-              target="_blank"
-              rel="noreferer noopener">
-              全ての結果を見る
-            </a>
-          </div>
-        {% endif %}
-      </div>
-    </section>
-  {% endif %}
+  {% endfor %}
 {% endblock %}

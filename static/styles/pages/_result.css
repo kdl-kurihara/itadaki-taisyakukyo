@@ -11,21 +11,17 @@
 }
 
 .result-list {
-  @apply mt-8 space-y-5 md:mt-10;
+  @apply mt-8 space-y-5 first:mt-0 md:mt-10;
 
   > li {
-    @apply grid grid-cols-[15%_1fr_25%] overflow-hidden;
+    @apply grid grid-cols-[1fr_25%] overflow-hidden;
   }
 }
 
-.result-list--rank {
-  @apply font-bold;
-}
-
 .result-list--name {
-  @apply border-l border-r border-current px-3 md:px-10;
+  @apply border-r border-current;
 }
 
 .result-list--time {
-  @apply text-right;
+  @apply pl-[25%];
 }
